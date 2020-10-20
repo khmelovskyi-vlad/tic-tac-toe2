@@ -1,0 +1,130 @@
+@media only screen and (max-width: 300px) {
+  .needWrap {
+    flex-direction: column;
+    /* margin: 0px; */
+  }
+  .section {
+    border-style: solid;
+    border-width: 0.05px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  /* .section {
+    width: 50px;
+    height: 50px;
+  }
+  .mainSection {
+    width: 150px;
+    height: 150px;
+  } */
+  body {
+    font-size: 0.25rem;
+  }
+  #noInput {
+    font-size: 0.75rem;
+  }
+  .section {
+    border-style: solid;
+    border-width: 0.5px;
+  }
+}
+@media only screen and (min-width: 576px) {
+  /* .section {
+    width: 75px;
+    height: 75px;
+  }
+  .mainSection {
+    width: 225px;
+    height: 225px;
+  } */
+  body {
+    font-size: 0.5rem;
+  }
+  #noInput {
+    font-size: 1.5rem;
+  }
+  .section {
+    border-style: solid;
+    border-width: 1px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  /* .section {
+    width: 100px;
+    height: 100px;
+  }
+  .mainSection {
+    width: 300px;
+    height: 300px;
+  } */
+  body {
+    font-size: 0.75rem;
+  }
+  #noInput {
+    font-size: 1.75rem;
+  }
+  .section {
+    border-style: solid;
+    border-width: 2px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  /* .section {
+    width: 125px;
+    height: 125px;
+  }
+  .mainSection {
+    width: 375px;
+    height: 375px;
+  } */
+  body {
+    font-size: 1rem;
+  }
+  #noInput {
+    font-size: 2rem;
+  }
+  .section {
+    border-style: solid;
+    border-width: 2.5px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* .section {
+    width: 150px;
+    height: 150px;
+  }
+  .mainSection {
+    width: 450px;
+    height: 450px;
+  } */
+  body {
+    font-size: 1.25rem;
+  }
+  #noInput {
+    font-size: 2.25rem;
+  }
+  .section {
+    border-style: solid;
+    border-width: 3px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  body {
+    background-color: lightblue;
+  }
+  /* .section {
+    width: 200px;
+    height: 200px;
+  }
+  .mainSection {
+    width: 600px;
+    height: 600px;
+  } */
+  body {
+    font-size: 1.5rem;
+  }
+  #noInput {
+    font-size: 2.5rem;
+  }
+}

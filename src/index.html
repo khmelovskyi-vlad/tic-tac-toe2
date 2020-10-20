@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="src\css\styles.css" /> -->
+    <title>Document</title>
+  </head>
+  <body>
+    <head></head>
+    <section class="row flex-column align-items-center m-0 mainContainer" id = "mainContainer">
+      <div
+        class="row flex-column form m-3 p-3"
+        style="border: solid; border-radius: 20px"
+      >
+      <div class="row flex-column">
+        <p class="text-center">If you want to watch all players results, press "all players"</p>
+        <input type="submit" id="allPlayers" value="all players" />
+      </div>
+        <div class="row needWrap m-1 p-0 firstFormDiv" id = "playerContainer">
+          <label for="player">Enter player name: </label>
+          <input type="text" name="player" id="playerName" />
+        </div>
+        <!-- <div class="row needWrap m-1 p-0">
+          <label for="player2">Enter player 2 name: </label>
+          <input type="text" name="player2" id="player2Name" />
+        </div> -->
+        <div class="row needWrap m-1 p-0">
+          <label for="linesCount">Write the lines number: </label>
+          <input type="text" name="linesCount" id="linesCount" />
+        </div>
+        <div class="row needWrap m-1 p-0">
+          <label for="winLine">Write a winning line: </label>
+          <input type="text" name="winLine" id="winLine" />
+        </div>
+        <div class="row needWrap m-1 p-0">
+          <label for="groupName">Enter group name: </label>
+          <input type="text" name="groupName" id="groupName" />
+        </div>
+        <input type="submit" id="names" class="m-1" />
+      </div>
+      <div
+        class="row flex-column playersWins m-3 p-3"
+        style="border: solid; border-radius: 20px; display: none;"
+      >
+      <input type="submit" class="m-1" value="back" id="playersWinsBack" />
+      </div>
+      <div
+        class="row flex-column startGameForm m-3 p-3"
+        style="border: solid; border-radius: 20px; display: none;"
+      >
+        <input type="submit" class="m-1" value="start game" id="startGameInput" />
+      </div>
+      <div
+        class="row flex-column playersInformation m-3 p-3"
+        style="border: solid; border-radius: 20px; display: none;"
+      >
+      </div>
+      <div
+        class="row flex-column congratulations m-3 p-3"
+        style="border: solid; border-radius: 20px; display: none;"
+      >
+      <div class="row" id="dontTouch">
+        <input type="submit" class="m-1" value="continue" id="continue" />
+        <input type="submit" class="m-1" value="create new" id="createNew" />
+      </div>
+      </div>
+      <div class="collumn w-75">
+        <div class="row m-0 p-0 w-100 flex-column mainSection">
+          <!-- <div id="section1" class="col-4 p-2 section"></div>
+          <div
+            id="section2"
+            class="col-4 border-left border-right border-dark p-2 section"
+          ></div>
+          <div id="section3" class="col-4 p-2 section"></div>
+          <div
+            id="section4"
+            class="col-4 border-top border-bottom border-dark p-2 section"
+          ></div>
+          <div id="section5" class="col-4 border border-dark p-2 section"></div>
+          <div
+            id="section6"
+            class="col-4 border-top border-bottom border-dark p-2 section"
+          ></div>
+          <div id="section7" class="col-4 p-2 section"></div>
+          <div
+            id="section8"
+            class="col-4 border-left border-right border-dark p-2 section"
+          ></div>
+          <div id="section9" class="col-4 p-2 section"></div> -->
+        </div>
+      </div>
+    </section>
+<script src="../node_modules/@aspnet/signalr/dist/browser/signalr.js"></script>
+<script src="../node_modules/@aspnet/signalr/dist/browser/signalr.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

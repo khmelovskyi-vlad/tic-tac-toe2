@@ -5,7 +5,7 @@ import ConnectionMaster from "./ConnectionMaster";
 import ImageMaster from "./ImageMaster";
 export default class Game {
   constructor(gamePlayer1, gamePlayer2, linesCount, winLine, startGameTime,
-    currentPlayer, isMyMove, groupName, connectionMaster, mustSaveData) {
+    currentPlayer, isMyMove, groupName, connectionMaster, mustSaveData, fileMaster) {
     this.gamePlayer1 = gamePlayer1;
     this.gamePlayer2 = gamePlayer2;
     this.linesCount = linesCount;
@@ -16,6 +16,7 @@ export default class Game {
     this.groupName = groupName;
     this.connectionMaster = connectionMaster;
     this.mustSaveData = mustSaveData;
+    this.fileMaster = fileMaster;
   }
   Run() {
     const sectionMaster = new SectionMaster();
@@ -81,9 +82,9 @@ export default class Game {
     return numberOfCoincidences >= this.winLine;
   }
   addGame(wonPlayerName) {
-    const gameId = FileMaster.addGame(this);
-    const playerIDs = FileMaster.addGamePlayers(wonPlayerName, this, gameId);
-    FileMaster.addSections(this, playerIDs);
+    const gameId = this.fileMaster.addGame(this);
+    const playerIDs = this.fileMaster.addGamePlayers(wonPlayerName, this, gameId);
+    this.fileMaster.addSections(this, playerIDs);
   }
   addSectionOnclickEvent(section, o, x) {
     section.onclick = () => {

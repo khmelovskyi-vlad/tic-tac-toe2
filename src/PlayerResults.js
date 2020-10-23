@@ -3,6 +3,9 @@ import PlayerMatches from "./PlayerMatches";
 import Deleter from "./Deleter";
 import FileMaster from "./FileMaster";
 export default class PlayerResults {
+  constructor(fileMaster) {
+    this.fileMaster = fileMaster
+  }
   Run() {
       this.initializePlayerResults();
   }
@@ -12,7 +15,7 @@ export default class PlayerResults {
       let playersWins = document.querySelector(".playersWins");
       console.log(playersWins);
       playersWins.style.display = "inline";
-      const playersMatches = (await FileMaster.getPlayerMatches()).sort((a,b) => b.wonGamesCount - a.wonGamesCount);
+      const playersMatches = (await this.fileMaster.getPlayerMatches()).sort((a,b) => b.wonGamesCount - a.wonGamesCount);
       for (let playerMatches of playersMatches){
         let playerMatchesDiv = document.createElement("div")
         playerMatchesDiv.classList = "row flex-column m-1"
@@ -30,7 +33,7 @@ export default class PlayerResults {
     };
   }
   async getPlayersMatches() {
-    return await FileMaster.getPlayerMatches();
+    return await this.fileMaster.getPlayerMatches();
     // let localStorageItems = { ...localStorage };
     // let playersMatches = [];
     // for (let localStorageItem in localStorageItems) {

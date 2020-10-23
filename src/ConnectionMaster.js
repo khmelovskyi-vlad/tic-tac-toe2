@@ -30,13 +30,13 @@ export default class ConnectionMaster {
 //   }
   startGameAsPlayer1(startGame, player1Name, linesCount, winLine, groupName, connector) {
       this.connection.on("StartGameAsPlayer1", function (player2Name) {
-          if (player1Name === player2Name) {
-            connector.reloadPageServer(groupName);
-          }
-          else {
+          // if (player1Name === player2Name) {
+          //   connector.reloadPageServer(groupName);
+          // }
+          // else {
             connector.sendPlayerNameServer(groupName, player1Name);
             startGame(player1Name, player2Name, linesCount, winLine, groupName, player1Name);
-          }
+          // }
     })
   }
   startGameAsPlayer2(startGame, player2Name, linesCount, winLine, groupName) {

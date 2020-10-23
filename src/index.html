@@ -13,7 +13,11 @@
     <title>Document</title>
   </head>
   <body>
-    <head></head>
+    <button id="login">Login</button>
+    <button id="api">Call API</button>
+    <button id="logout">Logout</button>
+
+    <pre id="results"></pre>
     <section class="row flex-column align-items-center m-0 mainContainer" id = "mainContainer">
       <div
         class="row flex-column form m-3 p-3"
@@ -23,11 +27,11 @@
         <p class="text-center">If you want to watch all players results, press "all players"</p>
         <input type="submit" id="allPlayers" value="all players" />
       </div>
-        <div class="row needWrap m-1 p-0 firstFormDiv" id = "playerContainer">
+        <!-- <div class="row needWrap m-1 p-0 firstFormDiv" id = "playerContainer">
           <label for="player">Enter player name: </label>
           <input type="text" name="player" id="playerName" />
         </div>
-        <!-- <div class="row needWrap m-1 p-0">
+        <div class="row needWrap m-1 p-0">
           <label for="player2">Enter player 2 name: </label>
           <input type="text" name="player2" id="player2Name" />
         </div> -->
@@ -97,8 +101,19 @@
         </div>
       </div>
     </section>
+    <!-- <script src="../node_modules/oidc-client/dist/oidc-client.js"></script> -->
 <script src="../node_modules/@aspnet/signalr/dist/browser/signalr.js"></script>
 <script src="../node_modules/@aspnet/signalr/dist/browser/signalr.min.js"></script>
+<script src="../node_modules/oidc-client/dist/oidc-client.js"></script>
+<script>
+  new Oidc.UserManager()
+    .signinRedirectCallback()
+    .then(function (user) {
+      window.location = "";
+    }).catch(function (e) {
+    })
+    ;
+</script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

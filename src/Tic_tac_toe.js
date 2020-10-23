@@ -13,36 +13,38 @@ var maxLinesCount = 100;
 var maxWinLine = 5;
 
 export default class Tic_tac_toe {
-  constructor(connectionMaster) {
+  constructor(connectionMaster, fileMaster) {
     this.connectionMaster = connectionMaster;
+    this.fileMaster = fileMaster;
   }
-  Run() {
-      this.initializeData();
-      const playerResults = new PlayerResults();
+  Run(playerName) {
+      this.initializeData(playerName);
+      const playerResults = new PlayerResults(this.fileMaster);
       playerResults.Run();
   }
-  initializeData() {
+  initializeData(playerName) {
     document.querySelector("#names").onclick = () => {
-      const playerElement = document.querySelector("#playerName");
+      // const playerElement = document.querySelector("#playerName");
       const linesCount = document.querySelector("#linesCount");
       const winLine = document.querySelector("#winLine");
       const groupElement = document.querySelector("#groupName");
-      if (this.checkEnteredData(playerElement.value, linesCount.value, winLine.value, groupName.value )
+      if (this.checkEnteredData(playerName, linesCount.value, winLine.value, groupName.value )
       ) {
         const groupName = `${groupElement.value}-${linesCount.value}-${winLine.value}`;
         // const groupName = groupElement.value;
+        console.log(playerName);
         console.log(groupName);
-        this.createWaiting(playerElement.value, groupName);
+        this.createWaiting(playerName, groupName);
         this.connectionMaster.receiveMessage();
-        this.connectionMaster.joinToGroup(groupName, playerElement.value);
+        this.connectionMaster.joinToGroup(groupName, playerName);
         this.connectionMaster.startGameAsPlayer1(this.startGame.bind(this),
-          playerElement.value,
+          playerName,
           linesCount.value,
           winLine.value,
           groupName,
           this.connectionMaster);
         this.connectionMaster.startGameAsPlayer2(this.startGame.bind(this),
-          playerElement.value,
+          playerName,
           linesCount.value,
           winLine.value,
           groupName);
@@ -54,7 +56,7 @@ export default class Tic_tac_toe {
     };
   }
   startGame(player1Name, player2Name, linesCount, winLine, groupName, myPlayerName) {
-    this.addPlayer(myPlayerName);
+    // this.addPlayer(myPlayerName);
     const game = this.createGame(player1Name, player2Name, linesCount, winLine, groupName, myPlayerName);
     game.Run();
   }
@@ -118,7 +120,8 @@ export default class Tic_tac_toe {
       myPlayerName == player1Name,
       groupName,
       this.connectionMaster,
-      myPlayerName == player1Name);
+      myPlayerName == player1Name,
+      this.fileMaster);
     this.connectionMaster.receiveCoordinates(game.runSectionSessionCoordinates.bind(game));
     // const sectionMaster = new SectionMaster();
     // sectionMaster.initializeSections(game, this);
@@ -129,9 +132,9 @@ export default class Tic_tac_toe {
     const gamePlayer2 = GamePlayer.initializePlayer(player2Name, "x");
     return { gamePlayer1, gamePlayer2 };
   }
-  addPlayer(playerName) {
-    FileMaster.addSomeData({ Id: playerName }, "https://localhost:5001/api/Player");
-  }
+  // addPlayer(playerName) {
+  //   FileMaster.addSomeData({ Id: playerName }, "https://localhost:5001/api/Player");
+  // }
   // addSectionOnclickEvent(section, game, o, x) {
   //   section.onclick = () => {
   //     if (!section.firstChild && game != undefined) {
